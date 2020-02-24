@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        //document.write("Hello world")
+        // Những cú pháp cần nhớ
+            // var khi khai báo sẽ được move lên đầu, các items bên trong đều sử dụng được
+
+        const dwrite = message =>{
+            document.write(message)
+        }
+        
+        // if (!a || !b) {
+        //     var a = 5
+        //     let b = 10
+
+        // } 
+        // console.log(a,b) => // b is not define
+        
+        //const  hangso = 10 
+        //var hangso = 10 
+        // =>   Identifier 'hangso' has already been declared
+
+        //const demo = (a,b) => a+b
+        
+        //dwrite(demo(5,10))
+        var menuItems = ['Home','About']
+        var memuHTMl = '<ul>'
+        menuItems.forEach(function (item) {
+            memuHTMl+=`<li> ${item} </li>`
+        })
+        memuHTMl += '<ul>'
+        dwrite(memuHTMl)
+    </script>
+</html>
