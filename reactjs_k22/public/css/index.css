@@ -1,24 +1,22 @@
 *{
-    margin:0;
-    padding:0;}
-    
-    body{
-    font-family:arial;
-    font-size:18px;}
-    
-    #slide{
-    width:600px;
-    height:400px;
-    margin: 50px auto;}
-    
-    #slide-img img{
-    border:5px solid #333;}
-    
-    #slide-num{
-    text-align:center;}
-    
-    #slide-num a{
-    font-weight:bold;
-    color:#333;
-    text-decoration:none;
-    letter-spacing:10px;}
+    margin: 0;
+    padding: 0;
+}
+#products{
+    margin: 50px auto;
+    text-align: center;
+}
+#small{
+    height: 90px;
+    line-height: 90px;
+}
+#small img{
+    width: 60px;
+    height: 80px;
+    margin: 0 5px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+#small img.active{
+    border: 2px solid #B4042A;
+}

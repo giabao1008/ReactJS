@@ -1,55 +1,39 @@
 import React, { Component } from 'react'
-// import SlideItem from './components/SlideItem'
-import Buttons from './components/Buttons'
-
+import Feature from './components/Feature'
+// import Thumb from './components/Thumb'
 
 export default class App extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
-
-    this.state= {
-      // items : [
-      //   'images/banner-1.jpg',
-      //   'images/banner-2.jpg',
-      //   'images/banner-3.jpg'
-      // ],
-      // default: 0,
-      urlDefault: 'images/banner-1.jpg',
+    this.state = {
+      imageSrcs : [
+        'images/img-1.jpg',
+        'images/img-2.jpg',
+        'images/img-3.jpg'
+      ],
+      featured : 0
     }
+
+  }
+  handleChange = (id) => {
+    this.setState({
+      featured: id
+    })
   }
 
-  handleChange = (url) => {
-    return this.setState({ 
-      urlDefault: url,
-    })
-      
-  }
-  changUrl1 = () => {
-    this.setState({
-      urlDefault: 'images/banner-2.jpg',
-    })
-  }
-  changUrl2 = () => {
-    this.setState({
-      urlDefault: 'images/banner-2.jpg',
-    })
-  }
-  changUrl3 = () => {
-    this.setState({
-      urlDefault: 'images/banner-3.jpg',
-    })
-  }
   render() {
+    const images = this.state.imageSrcs
     return (
-      <div id="slide">
-          <div id="slide-img"><img src={this.state.urlDefault}/></div>
-          <Buttons
-           //doChange={this.handleChange} 
-           changUrl1={this.changUrl1}
-           changUrl2={this.changUrl2}
-           changUrl3={this.changUrl3}
-           
-           />
+      <div id="products">
+        <Feature images={images} 
+                featured={this.state.featured} 
+                handleChange={this.handleChange}
+                alt=""
+
+                />
+        {/* <Thumb  images={images} 
+                featured={this.state.featured} 
+                handleChange={this.handleChange} /> */}
       </div>
     )
   }
