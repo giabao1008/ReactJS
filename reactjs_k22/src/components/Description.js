@@ -23,13 +23,21 @@ export default class Description extends Component {
             desEditEnable: false
         })
     }
+    componentDidUpdate(){
+        if(this.state.desEditEnable){
+            //   this.textInput.focus()
+                document.getElementById('des').focus()
+            }
+    }
     render() {
         return (
             <>
             { this.state.desEditEnable ? 
                 <textarea   onChange={this.handleChangeDes} 
                             onBlur={this.doneEditable} 
-                            value={this.state.des} /> 
+                            value={this.state.des}
+                            id="des" 
+                            /> 
                 :
                 <p onDoubleClick={this.enableChange}>   {this.state.des}  </p>
             }

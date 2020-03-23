@@ -13,9 +13,8 @@ export default class App extends Component {
   render() {
     const {imageUrl} = this.state
     return (
-
       <div id="main">
-        <div class="content-item">
+        <div className="content-item">
           <Image imageUrl={imageUrl}/>
           <Title />
           <Description />
