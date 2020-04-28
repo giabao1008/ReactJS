@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
-export default class Titile extends Component {
+class Title extends Component {
     constructor(props){
         super(props)
         this.state = {
             titleEditEnabel: false,
-            titleDefault: 'What is Lorem Ipsum?',
+            //titleDefault: 'What is Lorem Ipsum?',
             title: 'Loading....',
         }
       }
-    handleChangeTitle = (e) => {
-        this.setState({
-            title: e.target.value,
-        })
-    }
+    // handleChangeTitle = (e) => {
+    //     this.setState({
+    //         title: e.target.value,
+    //     })
+    // }
     enableChange = () =>{
         this.setState({
             titleEditEnabel: true
@@ -27,7 +28,7 @@ export default class Titile extends Component {
     componentDidMount(){
        setTimeout(() => {
         this.setState({
-            title: this.state.titleDefault
+            title: this.props.titleDefault
         })
        },2000)
     }
@@ -40,7 +41,7 @@ export default class Titile extends Component {
     shouldComponentUpdate(){
         if(this.state.title === ''){
             this.setState({
-                title: this.state.titleDefault
+                title: this.props.titleDefault
             })
         }
         return true
@@ -50,10 +51,10 @@ export default class Titile extends Component {
     }
     rentderInpTitle(){
         return <input onChange={this.handleChangeTitle} 
-        id="intTitle"
-        value={this.state.title} 
-        onBlur={this.doneEditable} 
-        ref={elem => (this.textInput = elem) } 
+                        id="intTitle"
+                        value={this.state.title} 
+                        onBlur={(e) => {this.props.doneEditable(e.target.value); this.doneEditable} }
+                        ref={elem => (this.textInput = elem) } 
         /> 
     }
     render() {
@@ -64,3 +65,16 @@ export default class Titile extends Component {
         )
     }
 }
+
+const mapStateToProp = (state) => ({
+        titleDefault : state.title
+})
+
+const mapDispatchToProp = (dispatch) => ({
+    doneEditable: (string) => dispatch({
+        type: "UPDATE_TITLE",
+        payload: string,
+    })
+})
+
+export default connect(mapStateToProp, mapDispatchToProp)(Title)
