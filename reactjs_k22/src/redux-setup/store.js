@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from 'redux'
 import reduxLogger from 'redux-logger'
 const initState = {
-    title : 'Default title when load app'
+    title : 'Default title when load app',
+    currentTime: 10
 }
 
 // action: {type, payload}
@@ -13,6 +14,13 @@ const reducers = (state = initState, action) => {
                 ...state,
                 title : action.payload
             }
+        case 'UPDATE_TIME' : {
+            return {
+                ...state,
+                defaultTime: action.payload
+            }
+
+        }
         default : 
             return state
     }

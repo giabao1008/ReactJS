@@ -10,11 +10,11 @@ class Title extends Component {
             title: 'Loading....',
         }
       }
-    // handleChangeTitle = (e) => {
-    //     this.setState({
-    //         title: e.target.value,
-    //     })
-    // }
+    handleChangeTitle = (e) => {
+        this.setState({
+            title: e.target.value,
+        })
+    }
     enableChange = () =>{
         this.setState({
             titleEditEnabel: true
@@ -34,15 +34,15 @@ class Title extends Component {
     }
     componentDidUpdate(){
         if(this.state.titleEditEnabel){
-        //   this.textInput.focus()
             document.getElementById('intTitle').focus()
         }
     }
     shouldComponentUpdate(){
         if(this.state.title === ''){
             this.setState({
-                title: this.props.titleDefault
+                title: "Default title"
             })
+            this.props.dispatchDoneEditable(this.state.title)
         }
         return true
     }
@@ -53,7 +53,10 @@ class Title extends Component {
         return <input onChange={this.handleChangeTitle} 
                         id="intTitle"
                         value={this.state.title} 
-                        onBlur={(e) => {this.props.doneEditable(e.target.value); this.doneEditable} }
+                        onBlur={(e) => { 
+                                this.doneEditable()
+                                this.props.dispatchDoneEditable(e.target.value)
+                            }}
                         ref={elem => (this.textInput = elem) } 
         /> 
     }
@@ -71,7 +74,7 @@ const mapStateToProp = (state) => ({
 })
 
 const mapDispatchToProp = (dispatch) => ({
-    doneEditable: (string) => dispatch({
+    dispatchDoneEditable: (string) => dispatch({
         type: "UPDATE_TITLE",
         payload: string,
     })
