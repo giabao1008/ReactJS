@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import reduxLogger from 'redux-logger'
 const initState = {
     title : 'Default title when load app',
-    currentTime: 10
+    defaultTime: 10
 }
 
 // action: {type, payload}
