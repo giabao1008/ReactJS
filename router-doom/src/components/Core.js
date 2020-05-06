@@ -8,7 +8,7 @@ import Home from './Home'
 import About from './About'
 import Contact from './Contact'
 import Detail from './Detail'
-
+import page404 from './page404'
 
 export default class Core extends Component {
     render() {
@@ -19,8 +19,10 @@ export default class Core extends Component {
                     <Route path="/" exact component={Home}  />
                     <Route path="/about" exact  component={About}  />
                     <Route path="/contact" exact component={Contact}  />   
-                    <Route path="/details/:id" component={Detail} />
-                    <Route render={ () => <Redirect to="/" />  } />
+                    <Route path="/details/:id" exact component={Detail} />
+                    <Route path="/page404" exact component={page404} />
+                    {/* <Route render={ () => <Redirect to="/" />  } /> */}
+                    <Route render={ () => <Redirect to="/page404" />  } />
                 </Switch>
                 <Footer />
             </BrowserRouter>
