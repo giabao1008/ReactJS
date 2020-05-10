@@ -6,14 +6,14 @@ class Header extends Component {
             <header>
                 <div className="container-fluid position-relative no-side-padding">
         
-                    <a href="#" className="logo"><img src="/images/logo.png" alt="Logo Image"/></a>
+                    <a href="/" className="logo"><img src="/images/logo.png" alt="Logo "/></a>
         
                     <div className="menu-nav-icon" data-nav-menu="#main-menu"><i className="ion-navicon"></i></div>
         
                     <ul className="main-menu visible-on-click" id="main-menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Features</a></li>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/">Categories</a></li>
+                        <li><a href="/features">Features</a></li>
                     </ul>
         
                     <div className="src-area">
