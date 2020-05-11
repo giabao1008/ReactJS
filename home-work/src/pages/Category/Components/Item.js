@@ -52,7 +52,7 @@ class Item extends Component {
                         </a>
                         <div className="blog-info">
                             <h4 className="title">
-                                <Link to={`/detail/${item.id}`} onClick={(e) => this.handleView(e)}>
+                                <Link to={`/detail/${item.id}`} >
                                     <b>{item.title}</b>
                                 </Link>
                             </h4>
